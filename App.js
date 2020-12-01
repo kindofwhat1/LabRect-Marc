@@ -15,15 +15,17 @@ export default function App() {
       screenOptions={{
         headerTitleAlign: 'center', 
         headerStyle: {
-          backgroundColor: '#621FF7',
+          backgroundColor: '#7fffd4',
+          
         },
         headerTintColor: '#fff',
         headerTitleStyle :{
-          fontWeight: 'bold'
-        }
+          fontWeight: 'bold',
+          color: 'black'
+        },
       }}>
-        <Stack.Screen name="Main" component={Mainpage} options={{title: 'Main Header'}}/>
-        <Stack.Screen name="Data"  component={DataPage} options={{title: 'Data Header'}}/>
+        <Stack.Screen name="Main" component={Mainpage} options={{title: 'Brottsplatskartan'}}/>
+        <Stack.Screen name="Data"  component={DataPage} options={{title: 'Information om brott'}}/>
       </Stack.Navigator>
     </NavigationContainer>
 

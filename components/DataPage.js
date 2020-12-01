@@ -1,20 +1,24 @@
 import React from 'react'
 import {View, Text, Button} from 'react-native'
+import styles from '../styles';
 
 function DataPage({route, navigation}){
-    const {book}=route.params
+    const {info}=route.params
 
     return(
-        <View style={{flex:1, justifyContent: 'center', alignItems: 'center'}}>
-
-        <Text>Data Page</Text>
-         <Text>{book.Shelf.Name}</Text>
-         <Text>{book.ISBN}</Text>
-         {book.Authors.map(function(author){
-             return <Text key = {author.Id} >Author:&nbsp;{author.LastName} </Text>
-         })}
-        <Button title="Till Main Page" onPress={()=> navigation.navigate('Main')} />
-
+        <View style={styles.background}>
+            <View style={styles.container}>
+                <Text style={{fontWeight: 'bold'}}>Typ av brott:</Text>
+                <Text>{info.title_type}</Text>
+                <Text style={{fontWeight: 'bold'}}>Plats: </Text>
+                <Text>{info.title_location}</Text>
+                <Text style={{fontWeight: 'bold'}}>Beskrivning: </Text>
+                <Text style={{fontStyle: 'italic'}}>{info.description}</Text>
+                <Text style={{fontWeight: 'bold'}}>När: </Text>
+                <Text>{info.date_human}</Text>
+               
+                <Button style={{alignItems: 'center'}} title="Tillbaka till län" onPress={()=> navigation.navigate('Main')} />
+            </View>
         </View>
     )
 }

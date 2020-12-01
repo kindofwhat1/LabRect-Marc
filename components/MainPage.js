@@ -6,7 +6,7 @@ import styles from '../styles'
 
 function MainPage({navigation}){
     const [isLoading, setLoading]=useState(true)
-    const [books, setBooks]=useState([])
+    const [info, setInfo]=useState([])
 
     //call the function when the mainpage screen comes into focusand clean up (stop) when it is unfocused
     useFocusEffect(
@@ -14,12 +14,12 @@ function MainPage({navigation}){
         React.useCallback(()=>{
             if (isLoading == true)
             {
-                fetch('http://193.10.202.70/BookAPI/API/BooksSimple')
+                fetch('https://brottsplatskartan.se/api/events')
                 .then(response=>response.json())
                 .then(data=>{
-                    //console.log(data)
                     setLoading(false)
-                    setBooks(data)
+                    setInfo(data.data)
+                    console.log(data.data.areas[2])
                 })
                 .catch(error => {
                     console.log(error);
@@ -32,21 +32,28 @@ function MainPage({navigation}){
 
     return(
 
-            <View style={styles.container}>
-        {isLoading==true && <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-        <Text>Fetching info...Please wait</Text>
-    <ActivityIndicator size="large" color="#00ff00"/></View> }
-        
-            <FlatList data={books} 
-        renderItem={({item})=> 
-        <TouchableOpacity onPress={()=>navigation.navigate('Data', {book:item})}>
-        <Text style = {styles.listTextStyle}>{item.Title}</Text>
-        </TouchableOpacity>
-            
-        }
+<View style= {styles.background}>
+    <View style= {styles.container}>
+        <View style={styles.container}>
+            {isLoading == true && <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+            <Text>Väntar på att data laddas.....</Text>
+            <ActivityIndicator size="large" color="#ff1493" /></View>}
 
-        keyExtractor={item =>item.Id.toString()} />
-        </View>     
+            <FlatList
+                data={info} 
+                renderItem={({item}) => 
+                <TouchableOpacity onPress={() => navigation.navigate('Data', {info: item})}> 
+                    <View style={styles.listTextStyle}>
+                          
+                          <Text>{item.title_type}, {item.title_location}</Text>
+                          
+                    </View>
+                </TouchableOpacity>}
+                keyExtractor={item => item.id.toString()}
+            />
+        </View>
+    </View>
+</View>
     )
 }
 export default  MainPage;

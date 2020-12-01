@@ -5,16 +5,17 @@ const styles = StyleSheet.create({
     
   },
   item: {
-    backgroundColor: '#f9c2ff',
+    backgroundColor: '#7fffd4',
     padding: 20,
     marginVertical: 8,
     marginHorizontal: 16,
+
   },
   title: {
     fontSize: 32,
   },
   background: {
-    backgroundColor: 'lightblue',
+    backgroundColor: '#f3efeb',
     flex: 1,
     flexDirection: 'column',
     flexGrow: 1,    
@@ -26,12 +27,11 @@ const styles = StyleSheet.create({
   },
 
 listTextStyle: {
-    fontSize: 16,
+    fontSize: 20,
     marginBottom: 12,
     fontWeight: 'bold',
-    color: 'darkblue',
-    backgroundColor: '#54C3E5',
-    padding: 5, 
+    backgroundColor: '#7fffd4',
+    padding: 15, 
 },
 
 detailsTextStyle: {

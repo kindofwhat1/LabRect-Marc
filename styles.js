@@ -11,9 +11,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 16,
 
   },
-  title: {
-    fontSize: 32,
-  },
+  
   background: {
     backgroundColor: '#f3efeb',
     flex: 1,
@@ -34,15 +32,10 @@ listTextStyle: {
     padding: 15, 
 },
 
-detailsTextStyle: {
-  fontSize: 24,
+detailsTitle: {
+  fontSize: 20,
+  fontWeight: 'bold',
   //fontWeight: 'bold',
-},
-contentStyle:{
-    flex: 1, //Fyll ut utrymmet
-    marginTop: 24,
-    marginLeft: 24,
-    marginRight: 24
 },
 
 imageStyle: {
@@ -51,23 +44,7 @@ imageStyle: {
   marginTop: 50,
 },
 
-footerTextStyle: {
-    fontSize: 12,
-    fontStyle: 'italic',
-    justifyContent: 'flex-end',
-    marginTop: 24,
-    marginLeft: 24,
-    marginRight: 24,
-    marginBottom: 24,
-}, 
-footerButtonViewStyle: {
-  justifyContent: 'space-evenly',
-  flexDirection: 'row',
-  flexGrow: 1,
-}, 
-footerButton: {
-  width: 100
-}
+
 
 });
 export default styles;

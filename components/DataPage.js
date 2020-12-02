@@ -8,18 +8,20 @@ function DataPage({route, navigation}){
     return(
         <View style={styles.background}>
             <View style={styles.container}>
-                <Text style={{fontWeight: 'bold'}}>Typ av brott:</Text>
+                <Text style={styles.detailsTitle}>Typ av brott:</Text>
                 <Text>{info.title_type}</Text>
-                <Text style={{fontWeight: 'bold'}}>Plats: </Text>
+                <Text style={styles.detailsTitle}>Plats: </Text>
                 <Text>{info.title_location}</Text>
-                <Text style={{fontWeight: 'bold'}}>Beskrivning: </Text>
+                <Text style={styles.detailsTitle}>Beskrivning: </Text>
                 <Text style={{fontStyle: 'italic'}}>{info.description}</Text>
-                <Text style={{fontWeight: 'bold'}}>När: </Text>
+                <Text style={styles.detailsTitle}>När: </Text>
                 <Text>{info.date_human}</Text>
-               
-                <Button style={{alignItems: 'center'}} title="Tillbaka till län" onPress={()=> navigation.navigate('Main')} />
+                <Button  color='black' title="Tillbaka till händelser" onPress={()=> navigation.navigate('Main')} />
             </View>
         </View>
+
+        
+        
     )
 }
 export default DataPage;
